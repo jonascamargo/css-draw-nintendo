@@ -50,11 +50,11 @@ body {
 .switch {
     box-sizing: border-box;
     width: 100%;
-    max-width: 1100px;
-    /* padding-bottom: 36%; */
-    padding-bottom: 460px;
-    margin: 5% auto 20px auto;
-    position: relative;
+    height: 460px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 
     filter: drop-shadow(0 10px 4px rgba(0, 0, 0, 0.6));
 }
@@ -62,20 +62,20 @@ body {
 
 .container {
     box-sizing: border-box;
-    display: flex;
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: relative;
 }
 
 
 .switch-part {
+    float: left;
     height: 100%;
 }
 
 
 .joycon {
-    width: 13%;
+    width: 140px;
     position: relative;
 }
 
@@ -96,6 +96,31 @@ body {
                 inset -10px 10px 7px 1px rgba(255, 255, 255, 0.4),
                 inset 0 -10px 5px 2px rgba(0, 0, 0, 0.3);
 }
+
+
+.joycon-base {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    width: 85%;
+    height: 90%;
+    border-radius: 50% 50% 60px 60px;
+    background-color: #3a3a3a;
+    
+    transition: left .3s,
+                right .3s,
+                transform .3s;
+}
+
+.joycon.a .joycon-base {
+    box-shadow: inset -20px -30px 60px 5px rgba(0, 0, 0, 0.6),
+                inset -5px -10px 20px 5px rgba(0, 0, 0, 0.6);
+}
+.joycon.b .joycon-base {
+    box-shadow: inset 20px -30px 60px 5px rgba(0, 0, 0, 0.6),
+                inset 5px -10px 20px 5px rgba(0, 0, 0, 0.6);
+}
+
 
 
 
@@ -194,8 +219,8 @@ body {
 
 .dir-analogico {
     box-sizing: border-box;
-    width: 42%;
-    padding-bottom: 42%;
+    width: 45%;
+    padding-bottom: 45%;
     border-radius: 55px;
     position: absolute;
     left: 50%;
@@ -224,8 +249,8 @@ body {
     height: 99%;
 }
 
-.joycon.a .dir-analogico { top: 17%; }
-.joycon.b .dir-analogico { top: 47%; }
+.joycon.a .dir-analogico { top: 15%; }
+.joycon.b .dir-analogico { top: 45%; }
 
 .dir-analogico i {
     width: calc(100% - 25%);
@@ -255,7 +280,7 @@ body {
     border-radius: 4px;
     position: absolute;
     right: 20%;
-    bottom: 20%;
+    bottom: 25%;
     cursor: pointer;
 }
 .btn-print:before {
@@ -283,7 +308,7 @@ body {
     border-radius: 50%;
     position: absolute;
     left: 20%;
-    bottom: 20%;
+    bottom: 25%;
     cursor: pointer;
 }
 .btn-home:before {
@@ -317,15 +342,15 @@ body {
 =============================================================== */
 
 .dir-digital {
-    width: 45%;
-    padding-bottom: 45%;
+    width: 50%;
+    padding-bottom: 50%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%)
                rotate(45deg);
 }
 
-.joycon.a .dir-digital { top: 47%; }
+.joycon.a .dir-digital { top: 43%; }
 .joycon.b .dir-digital { top: 15%; }
 
 .dir-digital .top {
@@ -390,54 +415,227 @@ body {
 /* TELA
 =============================================================== */
 
-.screen {
-    position: relative;
-    background-color: #212121;
-    box-sizing: border-box;
-    width: calc(100% - (13% * 2));
-    border-radius: 20px 20px 8px 8px;
-    box-shadow: inset 0 7px 7px rgba(255,255,255, .4),
-                inset 0 -3px 7px rgba(0,0,0, .7),
-                inset 2px 0 2px 3px rgba(0, 0, 0, 0.9),
-                inset -2px 0 2px 3px rgba(0, 0, 0, 0.9);
+@media only screen and (min-width:1100px){
+    .switch {
+        max-width: 1100px;
+
+        transition: max-width .2s;
+    }
+
+
+    .joycon.a .joycon-base {
+        transform: rotate(0);
+        left: 10px;
+        bottom: 10px;
+    }
+    .joycon.b .joycon-base {
+        transform: rotate(0);
+        right: 10px;
+        bottom: 10px;
+    }
+
+
+    .screen {
+        position: relative;
+        background-color: #212121;
+        box-sizing: border-box;
+        width: calc(100% - (140px * 2));
+        border-radius: 20px 20px 8px 8px;
+        box-shadow: inset 0 7px 7px rgba(255,255,255, .4),
+                    inset 0 -3px 7px rgba(0,0,0, .7),
+                    inset 2px 0 2px 3px rgba(0, 0, 0, 0.9),
+                    inset -2px 0 2px 3px rgba(0, 0, 0, 0.9);
+    }
+    
+    .screen:before,
+    .screen:after {
+        content: "";
+        float: left;
+        width: 30px;
+        height: 5px;
+        border-radius: 5px 5px 0 0;
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+    }
+    .screen:before { left: 5%; }
+    .screen:after { right: 5%; }
+    
+    .screen .border {
+        background-color: #141414;
+        width: calc(100% - 6%);
+        height: calc(100% - 6%);
+        border-radius: 10px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        box-shadow: inset 0 2px 1px rgba(255,255,255,0.1),
+                    0 2px 1px rgba(255,255,255,0.1);
+    }
+    
+    .screen .view {
+        background-color: grey;
+        box-sizing: border-box;
+        width: calc(100% - 13%);
+        height: calc(100% - 17%);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        box-shadow: inset 3px 3px 5px rgba(0,0,0,0.4);
+        overflow: hidden;
+    }
 }
 
-.screen:before,
-.screen:after {
-    content: "";
-    float: left;
-    width: 30px;
-    height: 5px;
-    border-radius: 5px 5px 0 0;
-    background-color: black;
-    position: absolute;
-    bottom: 0;
-}
-.screen:before { left: 5%; }
-.screen:after { right: 5%; }
+@media only screen and (max-width:1099px){
+    .switch {
+        transition: width .4s;
+        max-width: 460px;
 
-.screen .border {
-    background-color: #141414;
-    width: calc(100% - 6%);
-    height: calc(100% - 6%);
-    border-radius: 10px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    box-shadow: inset 0 2px 1px rgba(255,255,255,0.1),
-                0 2px 1px rgba(255,255,255,0.1);
-}
+        transition: max-width .2s;
+    }
 
-.screen .view {
-    background-color: grey;
-    box-sizing: border-box;
-    width: calc(100% - 13%);
-    height: calc(100% - 17%);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    box-shadow: inset 3px 3px 5px rgba(0,0,0,0.4);
-    overflow: hidden;
+    
+    .joycon.a .joycon-base {
+        transform: rotate(10deg);
+        left: -55px;
+        box-shadow: inset -20px -30px 60px 5px rgba(0, 0, 0, 0.6),
+                    inset -5px -10px 20px 5px rgba(0, 0, 0, 0.6);
+    }
+    .joycon.b .joycon-base {
+        transform: rotate(-10deg);
+        right: -55px;
+        box-shadow: inset 20px -30px 60px 5px rgba(0, 0, 0, 0.6),
+                    inset 5px -10px 20px 5px rgba(0, 0, 0, 0.6);
+    }
+
+
+    .led {
+        position: absolute;
+        z-index: 2;
+        top: 35%;
+        width: 5px;
+        height: 80px;
+    }
+    
+    .led span {
+        display: inline-block;
+        width: 100%;
+        height: 40%;
+        position: relative;
+        top: calc(55% - 25%);
+    }
+
+    .led:before,
+    .led:after,
+    .led span:before,
+    .led span:after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+        padding-bottom: 100%;
+        background-color: rgb(72, 255, 0);
+        position: absolute;
+        left: 0;
+    }
+    .led:before,
+    .led span:before { top: 0; }
+    .led:after,
+    .led span:after { bottom: 0; }
+
+    .joycon.a .led {
+        right: -25px;
+    }
+    .joycon.b .led {
+        left: -25px;
+    }
+
+
+    .screen {
+        position: relative;
+        background-color: #212121;
+        box-sizing: border-box;
+        width: calc(100% - (140px * 2));
+        border-radius: 8px 8px;
+        box-shadow: inset 0 7px 7px rgba(255,255,255, .4),
+                    inset 0 -3px 7px rgba(0,0,0, .7),
+                    inset 2px 0 2px 3px rgba(0, 0, 0, 0.9),
+                    inset -2px 0 2px 3px rgba(0, 0, 0, 0.9);
+    }
+
+
+    .logo {
+        box-sizing: border-box;
+        display: inline-block;
+        width: 110px;
+        min-height: 150px;
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        transform: translateX(-50%);
+    }
+
+    .logo .simbol {
+        display: flex;
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+    .logo .simbol i {
+        width: 100%;
+        height: 70px;
+        overflow: hidden;
+        position: relative;
+    }
+    .logo .simbol i:before {
+        content: "";
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .logo .simbol i:nth-child(1) {
+        box-shadow: inset 0 0 0 6px rgba(0, 0, 0, 0.5);
+        border-radius: 20px 0 0 20px;
+        margin-right: 7px;
+    }
+    .logo .simbol i:nth-child(1):before {
+        top: 30%;
+    }
+    .logo .simbol i:nth-child(2) {
+        border-radius: 0 20px 20px 0;
+    }
+    .logo .simbol i:nth-child(2):before {
+        background-color: transparent;
+        box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo .name {
+        color: rgba(0, 0, 0, 0.5);
+        display: block;
+        padding: 10px 0 0 0;
+    }
+    
+    .logo .name:before,
+    .logo .name:after {
+        font-family: sans-serif;
+        font-weight: bold;
+        text-align: center;
+        display: block;
+    }
+    .logo .name:before {
+        font-size: 0.8rem;
+        letter-spacing: 0.05rem;
+        content: "N i n t e n d o";
+    }
+    .logo .name:after {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        content: "Switch";
+    }
 }
