@@ -16,22 +16,23 @@
         <div class="container">
 
             <div class="switch-part joycon a">
-                <div class="trigger-left"></div>
+                <div class="btn trigger-left"></div>
 
                 <span class="btn-min"></span>
 
                 <div class="dir-analogico"><i></i></div>
 
                 <div class="dir-digital">
-                    <span class="btn-cir top"></span>
-                    <span class="btn-cir left"></span>
-                    <span class="btn-cir down"></span>
-                    <span class="btn-cir right"></span>
+                    <span class="btn circle top"></span>
+                    <span class="btn circle left"></span>
+                    <span class="btn circle down"></span>
+                    <span class="btn circle right"></span>
                 </div>
 
-                <span class="btn-print"></span>
+                <span class="btn btn-print"></span>
             </div>
             <!-- joycon -->
+            
 
             <div class="switch-part screen">
                 <div class="border">
@@ -39,22 +40,23 @@
                 </div>
             </div>
             <!-- screen -->
+            
 
             <div class="switch-part joycon b">
-                <div class="trigger-right"></div>
+                <div class="btn trigger-right"></div>
                 
                 <span class="btn-plus"></span>
 
                 <div class="dir-digital">
-                    <span class="btn-cir top"></span>
-                    <span class="btn-cir left"></span>
-                    <span class="btn-cir down"></span>
-                    <span class="btn-cir right"></span>
+                    <span class="btn circle top"></span>
+                    <span class="btn circle left"></span>
+                    <span class="btn circle down"></span>
+                    <span class="btn circle right"></span>
                 </div>
 
                 <div class="dir-analogico"><i></i></div>
 
-                <span class="btn-home"></span>
+                <span class="btn btn-home"></span>
             </div>
             <!-- joycon -->
 

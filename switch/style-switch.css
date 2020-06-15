@@ -73,8 +73,6 @@ body {
 }
 
 
-
-
 .joycon {
     width: 13%;
     position: relative;
@@ -100,6 +98,28 @@ body {
 
 
 
+/* BASE BOTOES
+=============================================================== */
+
+.btn {
+    background-color: #3a3a3a;
+
+    box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.5),
+                inset 0 -1px 3px 1px rgba(0, 0, 0, 0.6),
+                inset 0 0 5px rgba(0,0,0,0.5),
+                0 0 1px 2px rgba(0,0,0,0.7),
+                0 5px 3px rgba(0,0,0,0.6);
+}
+/* HOVER */
+.btn:hover {
+    box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.2),
+                inset 0 0 10px 3px rgba(0, 0, 0, 0.8),
+                0 0 1px 2px rgba(0, 0, 0, 1),
+                0 3px 2px 1px rgba(255, 255, 255, 0.8);
+}
+
+
+
 /* BOTOES - MAIS / MENOS
 =============================================================== */
 
@@ -109,18 +129,13 @@ body {
     display: inline-block;
     width: 15%;
     padding-bottom: 15%;
-    overflow: hidden;
     position: absolute;
     top: 5%;
     cursor: pointer;
     filter: drop-shadow(0 0 1px rgba(0,0,0,0.8))
             drop-shadow(0 3px 2px rgba(0,0,0,0.5));
-
-    transition: filter .1s;
 }
-
 .btn-min { right: 10%; }
-
 .btn-plus { left: 10%; }
 
 .btn-min:before,
@@ -209,7 +224,6 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    /* background-color: #202020; */
     background: rgb(79,86,91);
     background-image: radial-gradient(circle, #555555 0%, #202020 50%);
     background-size: 200%;
@@ -227,39 +241,23 @@ body {
     width: 17%;
     padding-bottom: 17%;
     border-radius: 4px;
-    background-color: #303030;
     position: absolute;
     right: 20%;
     bottom: 20%;
     cursor: pointer;
-    box-shadow: 0 0 2px 1px rgba(0,0,0,1),
-                inset 0 1px 1px rgba(255,255,255,0.6),
-                inset 0 0 2px rgba(0,0,0,1);
-                
-    transition: box-shadows .3s;
 }
 .btn-print:before {
+    background-color: #2c2c2c;
     content: "";
-    position: absolute;
-    width: calc(100% - 30%);
-    height: calc(100% - 30%);
+    width: calc(100% - 35%);
+    height: calc(100% - 35%);
     border-radius: 50%;
-    background-color: #161616;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    box-shadow: inset 0 1px 0 2px rgba(0,0,0,1),
-                0 1px 0 1px rgba(255, 255, 255, 0.5);
-}
-
-/* HOVER */
-.btn-print:hover {
-    box-shadow: 0 2px 1px 1px rgba(255, 255, 255, 0.6),
-                0 -1px 2px rgba(0,0,0,1);
-}
-.btn-print:hover:before {
-    box-shadow: inset 0 -1px 2px rgba(255,255,255,0.3),
-                inset 0 0 2px rgba(0,0,0,1);
+    box-shadow: inset 0 2px 1px rgba(0,0,0,1),
+                0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 
@@ -268,7 +266,6 @@ body {
 =============================================================== */
 
 .btn-home {
-    background-color: #292929;
     width: 22%;
     padding-bottom: 22%;
     border-radius: 50%;
@@ -276,32 +273,30 @@ body {
     left: 20%;
     bottom: 20%;
     cursor: pointer;
-    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 1),
-                inset 0 -1px 2px rgba(0, 0, 0, 0.7),
-                inset 0 0 1px 3px rgba(224, 224, 224, 0.4),
-                0 2px 3px rgba(0, 0, 0, 0.6),
-                0 0 2px 1px rgba(0, 0, 0, 0.6);
-    
-    transition: box-shadow .2s;
 }
 .btn-home:before {
     content: "⬟";
     font-family: sans-serif;
     font-size: 1.1rem;
-    line-height: 100%;
-    position: absolute;
-    left: 50%;
-    top: 45%;
-    transform: translate(-50%,-50%);
-}
+    text-align: center;
+    line-height: 190%;
 
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: inset 0 0 0 3px rgba(224, 224, 224, 0.5);
+}
 /* HOVER */
-.btn-home:hover {
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2),
-                inset 0 -1px 2px rgba(0, 0, 0, 0.2),
-                inset 0 0 1px 3px rgba(14, 146, 255, 0.8),
-                0 2px 1px rgba(0, 0, 0, 0.6),
-                0 0 2px 1px rgba(0, 0, 0, 0.6);;
+.btn-home:hover:before {
+    box-shadow: inset 0 0 0 3px rgba(0, 140, 255, 1),
+                inset 0 0 10px 2px rgba(0, 174, 255, 1),
+                0 0 10px 1px rgba(0, 174, 255, 0.8);
 }
 
 
@@ -315,7 +310,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%)
-                rotate(45deg);
+               rotate(45deg);
 }
 
 .joycon.a .dir-digital { top: 47%; }
@@ -338,56 +333,45 @@ body {
     bottom: 0;
 }
 
-.btn-cir {
-    background-color: #3a3a3a;
+.circle {
     width: 37%;
     padding-bottom: 37%;
     border-radius: 50%;
     position: absolute;
     cursor: pointer;
     transform: rotate(-45deg);
-    box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.5),
-                inset 0 -1px 3px 1px rgba(0, 0, 0, 0.6),
-                inset 0 0 5px rgba(0,0,0,0.5),
-                0 0 1px 2px rgba(0,0,0,0.7),
-                0 5px 3px rgba(0,0,0,0.6);
-                
-    transition: box-shadow .5s;
 }
-.btn-cir:before {
+.circle:before {
     font-size: 0.9rem;
     text-transform: uppercase;
-    line-height: 100%;
+    text-align: center;
+    line-height: 200%;
+
     content: "";
     display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
 }
 
-/* HOVER */
-.btn-cir:hover {
-    box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.2),
-                inset 0 0 10px 3px rgba(0, 0, 0, 0.8),
-                0 0 1px 2px rgba(0, 0, 0, 1),
-                0 3px 2px 1px rgba(255, 255, 255, 0.8);
-}
+.joycon.a .circle { font-family: cursive, initial !important; }
+.joycon.a .circle.top:before { content: "▲"; }
+.joycon.a .circle.left:before { content: "◄"; }
+.joycon.a .circle.down:before { content: "►"; }
+.joycon.a .circle.right:before { content: "▼"; }
 
-.joycon.a .btn-cir { font-family: cursive, initial !important; }
-.joycon.a .btn-cir.top:before { content: "▲"; }
-.joycon.a .btn-cir.left:before { content: "◄"; }
-.joycon.a .btn-cir.down:before { content: "►"; }
-.joycon.a .btn-cir.right:before { content: "▼"; }
-
-.joycon.b .btn-cir {
+.joycon.b .circle {
     font-family: sans-serif;
     color: silver;
 }
-.joycon.b .btn-cir.top:before { content: "X"; }
-.joycon.b .btn-cir.left:before { content: "Y"; }
-.joycon.b .btn-cir.down:before { content: "A"; }
-.joycon.b .btn-cir.right:before { content: "B"; }
+.joycon.b .circle.top:before { content: "X"; }
+.joycon.b .circle.left:before { content: "Y"; }
+.joycon.b .circle.down:before { content: "A"; }
+.joycon.b .circle.right:before { content: "B"; }
 
 
 
