@@ -5,56 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>NTDO Switch - LAB.jonas</title>
+
+    <link rel="stylesheet" href="switch/style-switch.css">
 </head>
 
 
 <body>
 
-    <div class="console switch">
-        <div class="switch-joycon a">
-            <div class="trigger-left"></div>
+    <div class="switch">
+        <div class="container">
 
-            <span class="btn-min"></span>
+            <div class="switch-part joycon a">
+                <div class="trigger-left"></div>
 
-            <div class="dir-analogico"><i></i></div>
+                <span class="btn-min"></span>
 
-            <div class="dir-digital">
-                <span class="btn-cir top"></span>
-                <span class="btn-cir left"></span>
-                <span class="btn-cir down"></span>
-                <span class="btn-cir right"></span>
+                <div class="dir-analogico"><i></i></div>
+
+                <div class="dir-digital">
+                    <span class="btn-cir top"></span>
+                    <span class="btn-cir left"></span>
+                    <span class="btn-cir down"></span>
+                    <span class="btn-cir right"></span>
+                </div>
+
+                <span class="btn-print"></span>
             </div>
+            <!-- joycon -->
 
-            <span class="btn-print"></span>
-        </div>
-        <!-- joycon -->
-
-        <div class="switch-screan">
-            <div class="border">
-                <div class="screan-view"></div>
+            <div class="switch-part screen">
+                <div class="border">
+                    <div class="view"></div>
+                </div>
             </div>
-        </div>
-        <!-- screan -->
+            <!-- screen -->
 
-        <div class="switch-joycon b">
-            <div class="trigger-right"></div>
-            
-            <span class="btn-plus"></span>
+            <div class="switch-part joycon b">
+                <div class="trigger-right"></div>
+                
+                <span class="btn-plus"></span>
 
-            <div class="dir-digital">
-                <span class="btn-cir x"></span>
-                <span class="btn-cir a"></span>
-                <span class="btn-cir b"></span>
-                <span class="btn-cir y"></span>
+                <div class="dir-digital">
+                    <span class="btn-cir top"></span>
+                    <span class="btn-cir left"></span>
+                    <span class="btn-cir down"></span>
+                    <span class="btn-cir right"></span>
+                </div>
+
+                <div class="dir-analogico"><i></i></div>
+
+                <span class="btn-home"></span>
             </div>
+            <!-- joycon -->
 
-            <div class="dir-analogico"><i></i></div>
-
-            <span class="btn-home"></span>
         </div>
-        <!-- joycon -->
+        <!-- container -->
     </div>
-    <!-- console -->
+    <!-- switch -->
     
 </body>
 </html>

@@ -1,0 +1,447 @@
+/* CSS RESET
+=============================================================== */
+
+html {line-height: 1.15;-webkit-text-size-adjust: 100%;}
+body {margin: 0;}
+main {display: block;}
+h1 {font-size: 2em;margin: 0.67em 0;}
+hr {box-sizing: content-box;height: 0;overflow: visible;}
+pre {font-family: monospace, monospace;font-size: 1em;}
+a {background-color: transparent;}
+abbr[title] {border-bottom: none;text-decoration: underline;text-decoration: underline dotted;}
+b,strong {font-weight: 700er;}
+code,kbd,samp {font-family: monospace, monospace;font-size: 1em;}
+small {font-size: 80%;}
+sub,sup {font-size: 75%;line-height: 0;position: relative;vertical-align: baseline;}
+sub {bottom: -0.25em;}
+sup {top: -0.5em;}
+img {border-style: none;}
+button,input,optgroup,select,textarea {font-family: inherit;font-size: 100%;line-height: 1.15;margin: 0;}
+button,input {overflow: visible;}
+button,select {text-transform: none;}
+button,[type="button"],[type="reset"],[type="submit"] {-webkit-appearance: button;}
+button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {border-style: none;padding: 0;}
+button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring {outline: 1px dotted ButtonText;}
+fieldset {padding: 0.35em 0.75em 0.625em;}
+legend {box-sizing: border-box;color: inherit;display: table;max-width: 100%;padding: 0;white-space: normal;}
+progress {vertical-align: baseline;}
+textarea {overflow: auto;}
+[type="checkbox"],[type="radio"] {box-sizing: border-box;padding: 0;}
+[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button {height: auto;}
+[type="search"] {-webkit-appearance: textfield;outline-offset: -2px;}
+[type="search"]::-webkit-search-decoration {-webkit-appearance: none;}
+::-webkit-file-upload-button {-webkit-appearance: button;font: inherit;}
+details {display: block;}
+summary {display: list-item;}
+template {display: none;}
+[hidden] {display: none;}
+
+
+
+
+/* MAIN STYLE
+=============================================================== */
+
+body {
+    background-color: moccasin;
+}
+
+
+.switch {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    padding-bottom: 32%;
+    margin: 5% auto;
+    position: relative;
+
+    filter: drop-shadow(0 10px 4px rgba(0, 0, 0, 0.6));
+}
+
+
+.container {
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+
+.switch-part {
+    height: 100%;
+}
+
+
+
+
+.joycon {
+    width: 13%;
+    position: relative;
+}
+
+.joycon.a {
+    background-color: #16bcda;
+    border-radius: 90px 8px 8px 90px;
+
+    box-shadow: inset -3px -3px 2px 0 rgba(0, 0, 0, 0.3),
+                inset 10px 10px 7px 1px rgba(255, 255, 255, 0.4),
+                inset 0 -10px 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+.joycon.b {
+    background-color: #e4391b;
+    border-radius: 8px 90px 90px 8px;
+
+    box-shadow: inset 3px -3px 2px 0 rgba(0, 0, 0, 0.3),
+                inset -10px 10px 7px 1px rgba(255, 255, 255, 0.4),
+                inset 0 -10px 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* BOTOES - MAIS / MENOS
+=============================================================== */
+
+.btn-min,
+.btn-plus {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 15%;
+    padding-bottom: 15%;
+    overflow: hidden;
+    position: absolute;
+    top: 5%;
+    cursor: pointer;
+    filter: drop-shadow(0 0 1px rgba(0,0,0,0.8))
+            drop-shadow(0 3px 2px rgba(0,0,0,0.5));
+
+    transition: filter .1s;
+}
+
+.btn-min { right: 10%; }
+
+.btn-plus { left: 10%; }
+
+.btn-min:before,
+.btn-plus:before, .btn-plus:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 20%;
+    border-radius: 10px;
+    background-color: #212121;
+    position: absolute;
+
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+.btn-min:before,
+.btn-plus:before {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.btn-plus:after {
+    width: 20%;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* HOVER */
+.btn-min:hover,
+.btn-plus:hover {
+    filter: drop-shadow(0 2px 1px rgba(255,255,255,0.8))
+            drop-shadow(0 0 1px rgba(0,0,0,0.8));
+}
+
+.btn-min:hover:before,
+.btn-plus:hover:before, .btn-plus:hover:after {
+    box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+
+
+/* DIRECIONAL ANALOGICO
+=============================================================== */
+
+.dir-analogico {
+    box-sizing: border-box;
+    width: 38%;
+    padding-bottom: 38%;
+    border-radius: 55px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #363636;
+
+    box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.6),
+                inset 0 -2px 3px rgba(0, 0, 0, 1),
+                0 0 6px rgba(0, 0, 0, 1),
+                0 0 3px rgba(0, 0, 0, 1),
+                0 15px 7px rgba(0, 0, 0, 0.3);
+}
+.dir-analogico:before,
+.dir-analogico:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 99%;
+    height: 5%;
+    background-color: #212121;
+}
+.dir-analogico:after {
+    width: 5%;
+    height: 99%;
+}
+
+.joycon.a .dir-analogico { top: 17%; }
+.joycon.b .dir-analogico { top: 47%; }
+
+.dir-analogico i {
+    width: calc(100% - 25%);
+    height: calc(100% - 25%);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    /* background-color: #202020; */
+    background: rgb(79,86,91);
+    background-image: radial-gradient(circle, #555555 0%, #202020 50%);
+    background-size: 200%;
+    background-position: 50% -10px;
+    box-shadow: 0 2px 2px rgba(255, 255, 255, 0.7),
+                0 -2px 2px rgba(0, 0, 0, 1);
+}
+
+
+
+/* BOTOES PRINT
+=============================================================== */
+
+.btn-print {
+    width: 17%;
+    padding-bottom: 17%;
+    border-radius: 4px;
+    background-color: #303030;
+    position: absolute;
+    right: 20%;
+    bottom: 20%;
+    cursor: pointer;
+    box-shadow: 0 0 2px 1px rgba(0,0,0,1),
+                inset 0 1px 1px rgba(255,255,255,0.6),
+                inset 0 0 2px rgba(0,0,0,1);
+                
+    transition: box-shadows .3s;
+}
+.btn-print:before {
+    content: "";
+    position: absolute;
+    width: calc(100% - 30%);
+    height: calc(100% - 30%);
+    border-radius: 50%;
+    background-color: #161616;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: inset 0 1px 0 2px rgba(0,0,0,1),
+                0 1px 0 1px rgba(255, 255, 255, 0.5);
+}
+
+/* HOVER */
+.btn-print:hover {
+    box-shadow: 0 2px 1px 1px rgba(255, 255, 255, 0.6),
+                0 -1px 2px rgba(0,0,0,1);
+}
+.btn-print:hover:before {
+    box-shadow: inset 0 -1px 2px rgba(255,255,255,0.3),
+                inset 0 0 2px rgba(0,0,0,1);
+}
+
+
+
+/* BOTOES HOME
+=============================================================== */
+
+.btn-home {
+    background-color: #292929;
+    width: 22%;
+    padding-bottom: 22%;
+    border-radius: 50%;
+    position: absolute;
+    left: 20%;
+    bottom: 20%;
+    cursor: pointer;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 1),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.7),
+                inset 0 0 1px 3px rgba(224, 224, 224, 0.4),
+                0 2px 3px rgba(0, 0, 0, 0.6),
+                0 0 2px 1px rgba(0, 0, 0, 0.6);
+    
+    transition: box-shadow .2s;
+}
+.btn-home:before {
+    content: "⬟";
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    line-height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%,-50%);
+}
+
+/* HOVER */
+.btn-home:hover {
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.2),
+                inset 0 0 1px 3px rgba(14, 146, 255, 0.8),
+                0 2px 1px rgba(0, 0, 0, 0.6),
+                0 0 2px 1px rgba(0, 0, 0, 0.6);;
+}
+
+
+
+/* DIRECIONAL DIGITAL
+=============================================================== */
+
+.dir-digital {
+    width: 45%;
+    padding-bottom: 45%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%)
+                rotate(45deg);
+}
+
+.joycon.a .dir-digital { top: 47%; }
+.joycon.b .dir-digital { top: 15%; }
+
+.dir-digital .top {
+    left: 0;
+    top: 0;
+}
+.dir-digital .left {
+    left: 0;
+    bottom: 0;
+}
+.dir-digital .down {
+    right:0 ;
+    top: 0;
+}
+.dir-digital .right {
+    right: 0;
+    bottom: 0;
+}
+
+.btn-cir {
+    background-color: #3a3a3a;
+    width: 37%;
+    padding-bottom: 37%;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    transform: rotate(-45deg);
+    box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.5),
+                inset 0 -1px 3px 1px rgba(0, 0, 0, 0.6),
+                inset 0 0 5px rgba(0,0,0,0.5),
+                0 0 1px 2px rgba(0,0,0,0.7),
+                0 5px 3px rgba(0,0,0,0.6);
+                
+    transition: box-shadow .5s;
+}
+.btn-cir:before {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    line-height: 100%;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/* HOVER */
+.btn-cir:hover {
+    box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.2),
+                inset 0 0 10px 3px rgba(0, 0, 0, 0.8),
+                0 0 1px 2px rgba(0, 0, 0, 1),
+                0 3px 2px 1px rgba(255, 255, 255, 0.8);
+}
+
+.joycon.a .btn-cir { font-family: cursive, initial !important; }
+.joycon.a .btn-cir.top:before { content: "▲"; }
+.joycon.a .btn-cir.left:before { content: "◄"; }
+.joycon.a .btn-cir.down:before { content: "►"; }
+.joycon.a .btn-cir.right:before { content: "▼"; }
+
+.joycon.b .btn-cir {
+    font-family: sans-serif;
+    color: silver;
+}
+.joycon.b .btn-cir.top:before { content: "X"; }
+.joycon.b .btn-cir.left:before { content: "Y"; }
+.joycon.b .btn-cir.down:before { content: "A"; }
+.joycon.b .btn-cir.right:before { content: "B"; }
+
+
+
+/* TELA
+=============================================================== */
+
+.screen {
+    position: relative;
+    background-color: #212121;
+    box-sizing: border-box;
+    width: calc(100% - (13% * 2));
+    border-radius: 20px 20px 8px 8px;
+    box-shadow: inset 0 7px 7px rgba(255,255,255, .4),
+                inset 0 -3px 7px rgba(0,0,0, .7),
+                inset 2px 0 3px rgba(0, 0, 0, .4),
+                inset -2px 0 3px rgba(0, 0, 0, .4);
+}
+
+.screen:before,
+.screen:after {
+    content: "";
+    float: left;
+    width: 30px;
+    height: 5px;
+    border-radius: 5px 5px 0 0;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+}
+.screen:before { left: 5%; }
+.screen:after { right: 5%; }
+
+.screen .border {
+    background-color: #191919;
+    width: calc(100% - 6%);
+    height: calc(100% - 6%);
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: inset 0 2px 1px rgba(255,255,255,0.1),
+                0 2px 1px rgba(255,255,255,0.1);
+}
+
+.screen .view {
+    background-color: grey;
+    box-sizing: border-box;
+    width: calc(100% - 10%);
+    height: calc(100% - 10%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: inset 3px 3px 5px rgba(0,0,0,0.4);
+    overflow: hidden;
+}
